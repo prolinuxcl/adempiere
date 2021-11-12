@@ -16,15 +16,33 @@
   limitations under the License.
 -->
 <!-- The contents of this file will be loaded for each web application -->
-<Context>
+<Context clearReferencesStopTimerThreads="false" clearReferencesStopThreads="false">
 
     <!-- Default set of monitored resources. If one of these changes, the    -->
     <!-- web application will be reloaded.                                   -->
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
+    <WatchedResource>WEB-INF/tomcat-web.xml</WatchedResource>
     <WatchedResource>${catalina.base}/conf/web.xml</WatchedResource>
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--
     <Manager pathname="" />
     -->
+    <Resource name="java/AdempiereDS" auth="Container"
+              factory="com.zaxxer.hikari.HikariJNDIFactory"
+              type="javax.sql.DataSource"
+              minimumIdle="5"
+              maximumPoolSize="150"
+              connectionTimeout="300000"
+              poolName="AdempiereDS"
+              cachePrepStmts= "true"
+              prepStmtCacheSize= "250"
+              prepStmtCacheSqlLimit= "2048"
+              jdbcUrl="jdbc:postgresql://adempiere:5432/adempiere"
+              driverClassName="org.postgresql.Driver"
+              dataSource.serverName="adempiere"
+              dataSource.portNumber="5432"
+              dataSource.databaseName="adempiere"
+              dataSource.user="adempiere"
+              dataSource.password="adempiere"/>
 </Context>
