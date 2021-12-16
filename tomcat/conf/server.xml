@@ -38,11 +38,31 @@
     <!-- Editable user database that can also be used by
          UserDatabaseRealm to authenticate users
     -->
-    <Resource name="UserDatabase" auth="Container"
+    <!--Resource name="UserDatabase" auth="Container"
               type="org.apache.catalina.UserDatabase"
               description="User database that can be updated and saved"
               factory="org.apache.catalina.users.MemoryUserDatabaseFactory"
-              pathname="conf/tomcat-users.xml" />
+              pathname="conf/tomcat-users.xml" /-->
+    <!-- Reference https://tomcat.apache.org/tomcat-7.0-doc/jdbc-pool.html -->
+    <Resource name="java/AdempiereDS" auth="Container"
+              factory="com.zaxxer.hikari.HikariJNDIFactory"
+              type="javax.sql.DataSource"
+              minimumIdle="5"
+              maximumPoolSize="150"
+              connectionTimeout="300000"
+              validationQuery="select 1"
+              testOnBorrow="true"
+              poolName="AdempiereDS"
+              cachePrepStmts= "true"
+              prepStmtCacheSize= "250"
+              prepStmtCacheSqlLimit= "2048"
+              jdbcUrl="jdbc:postgresql://adempiere:5432/adempiere"
+              driverClassName="org.postgresql.Driver"
+              dataSource.serverName="adempiere"
+              dataSource.portNumber="5432"
+              dataSource.databaseName="adempiere"
+              dataSource.user="adempiere"
+              dataSource.password="adempiere"/>          
   </GlobalNamingResources>
 
   <!-- A "Service" is a collection of one or more "Connectors" that share
@@ -141,8 +161,8 @@
              resources under the key "UserDatabase".  Any edits
              that are performed against this UserDatabase are immediately
              available for use by the Realm.  -->
-        <Realm className="org.apache.catalina.realm.UserDatabaseRealm"
-               resourceName="UserDatabase"/>
+        <!--Realm className="org.apache.catalina.realm.UserDatabaseRealm"
+               resourceName="UserDatabase"/-->
       </Realm>
 
       <Host name="localhost"  appBase="webapps"
