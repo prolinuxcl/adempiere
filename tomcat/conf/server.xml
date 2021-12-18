@@ -62,7 +62,8 @@
               dataSource.portNumber="5432"
               dataSource.databaseName="adempiere"
               dataSource.user="adempiere"
-              dataSource.password="adempiere"/>          
+              dataSource.password="adempiere"
+              closeMethod="close"/>          
   </GlobalNamingResources>
 
   <!-- A "Service" is a collection of one or more "Connectors" that share
