@@ -542,8 +542,7 @@ public class Trx implements VetoableChangeListener
 					trx.rollback(savepoint);
 				}
 				catch (SQLException e2) {;}
-			}
-			trx = null;
+			}			
 			// Throw exception
 			if (e instanceof RuntimeException)
 			{
