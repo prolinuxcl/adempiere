@@ -1,0 +1,15 @@
+<component name="libraryTable">
+  <library name="Adempiere">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/install/build/Adempiere/lib/Adempiere.jar!/" />
+      <root url="jar://$PROJECT_DIR$/install/build/Adempiere/lib/adempiereApps.jar!/" />
+      <root url="jar://$PROJECT_DIR$/install/build/Adempiere/lib/adempiereRoot.jar!/" />
+      <root url="jar://$PROJECT_DIR$/install/build/Adempiere/lib/AdempiereCLib.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/install/build/Adempiere/lib/AdempiereCLib.jar!/" />
+      <root url="jar://$PROJECT_DIR$/install/build/Adempiere/lib/AdempiereCLib.jar!/Lib" />
+    </SOURCES>
+  </library>
+</component>
